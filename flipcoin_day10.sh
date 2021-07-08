@@ -18,10 +18,10 @@ done
 echo "heads_count = $hc and tails_count = $tc "
 if(( hc > tc ))
 then
-	echo "heads won the stimulation task"
+	echo "heads won by $(( hc - tc ))"
 elif(( tc > hc ))
 then
-	echo "tails won the stimulation task"
+	echo "tails won by $(( tc - hc ))"
 else
 	echo " it's a tie"
 fi
