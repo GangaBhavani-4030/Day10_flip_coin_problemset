@@ -1,27 +1,31 @@
 echo "Welcome to the hackers on Flipping coin stimulation problem "
-echo "enter the number: "
-read n
+tc1=21
+fc=0
+min_diff=2
 hc=0
 tc=0
-for(( i=1; i<=n; i++ ))
-do 
+while(( 1 ))
+do
+	(( fc++ ))	
+	echo -n "flip - $fc is"
 	coin=$(( RANDOM % 2 ))
 	if(( coin == 0 ))
 	then
-		echo "flip-$i tails"
-		(( tc++ ))
-	else
-		echo "flip-$i heads"
+		echo "it's tail"
 		(( hc++ ))
+	else	
+		echo "it's heads"
+		(( tc++ ))
+	fi
+	hc_tc_diff=$(( hc -tc ))
+	if(( hc == tc1 && hc_tc_diff >= min_diff ))
+	then
+		echo "head won with difference $hc_tc_diff points "
+		break
+	elif(( tc == tc1 && ${hc_tc_diff} >= mini_diff ))
+	then
+		echo "tails won with difference ${hc_tc_diff} points"
+		break
 	fi
 done
-echo "heads_count = $hc and tails_count = $tc "
-if(( hc > tc ))
-then
-	echo "heads won by $(( hc - tc ))"
-elif(( tc > hc ))
-then
-	echo "tails won by $(( tc - hc ))"
-else
-	echo " it's a tie"
-fi
+echo "the heads count is $hc and tails count is $tc "
