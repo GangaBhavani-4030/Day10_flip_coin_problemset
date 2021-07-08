@@ -1,4 +1,16 @@
 echo "Welcome to the hackers on Flipping coin stimulation problem "
+#UC-1
+coin=(( RANDOM % 2 ))
+if(( coin == 0))
+then
+	echo "tails"
+else
+	echo "heads"
+fi 
+
+
+
+#difference 2 between hc and tc
 tc1=21
 fc=0
 min_diff=2
@@ -28,4 +40,4 @@ do
 		break
 	fi
 done
-echo "the heads count is $hc and tails count is $tc "
+echo "the heads count is $hc and tails count is $tc  "
